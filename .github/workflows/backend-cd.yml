@@ -18,13 +18,17 @@ jobs:
       - name: Azure Login
         uses: azure/login@v2
         with:
-          client-id:      ${{ secrets.AZURE_CLIENT_ID }}
-          tenant-id:      ${{ secrets.AZURE_TENANT_ID }}
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+      - name: Debug: show imageToDeploy
+        run: |
+          echo "IMAGE = ${{ github.event.workflow_run.outputs.image }}"
 
       - name: Deploy to Container Apps
         uses: azure/container-apps-deploy-action@v2
         with:
-          resourceGroup:    careerstudio-rg       # your RG
-          containerAppName: careerstudio-api      # your Container App name
+          resourceGroup:    careerstudio-rg
+          containerAppName: careerstudio-api
           imageToDeploy:    ${{ github.event.workflow_run.outputs.image }}
