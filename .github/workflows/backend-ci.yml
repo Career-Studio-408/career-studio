@@ -7,7 +7,8 @@ on:
     branches: [ main ]
   pull_request:
     paths: [ 'backend/**' ]
-
+  workflow_dispatch: 
+    # manual trigger
 permissions:
   id-token: write                    # OIDC login
   contents: read
