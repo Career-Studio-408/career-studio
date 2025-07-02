@@ -2,6 +2,7 @@
 .lh/
 .vscode/
 secrets/
+playwright-report/
 
 # Logs
 logs
