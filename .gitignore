@@ -1,6 +1,7 @@
 # Added
 .lh/
 .vscode/
+secrets/
 
 # Logs
 logs
